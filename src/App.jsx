@@ -3,8 +3,8 @@ import Header from './Component/Header'
 
 const App = () => {
   return (
-    <div >
-      <Header/>
+    <div className='bg-[#16181F] w-full max-w-screen overflow-x-hidden '>
+      <Header />
     </div>
   )
 }

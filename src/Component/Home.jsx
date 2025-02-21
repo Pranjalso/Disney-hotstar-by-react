@@ -2,10 +2,11 @@ import React from 'react'
 import banner1 from '../assets/banner1.jpg'
 import Footer from './Footer'
 import Fun from './Fun'
+
 const Home = () => {
   return (
     <>
-     <div className="bg-[#16181F] max-w-[900px] mx-auto flex flex-col md:flex-row md:items-start  gap-4 rounded-lg shadow-lg  md:p-3">
+     <div className="bg-[#16181F] max-w-[900px] mx-auto  flex flex-col md:flex-row md:items-start  gap-4 rounded-lg shadow-lg  md:p-3">
   {/* Image Section */}
   <div className="w-full md:w-[400px] flex-shrink-0 overflow-hidden">
     <img 
@@ -28,7 +29,9 @@ const Home = () => {
     </button>
   </div>
 </div>
- <Fun/>
+ 
+  
+<Fun/>
  <Footer/>
     </>
   )

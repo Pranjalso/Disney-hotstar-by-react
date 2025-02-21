@@ -15,9 +15,10 @@ const Header = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 h-full bg-[#16181F] text-white p-4 transition-all duration-300 flex flex-col items-center
+      className={`absolute top-0 left-0 h-full bg-transparent  text-white p-4 transition-all duration-300 flex flex-col items-center 
         ${isExpanded ? "w-48" : "w-16 md:w-20"} 
       `}
+      style={{ zIndex: 90 }} // Z-index ko kam kiya taaki image ke neeche aaye
       onMouseEnter={() => setIsExpanded(true)}
       onMouseLeave={() => setIsExpanded(false)}
     >
@@ -27,9 +28,9 @@ const Header = () => {
       </div>
 
       {/* Navigation */}
-      <nav className="mt-6 space-y-6 w-full">
+      <nav className="relative mt-6 space-y-6 w-full z-10 ">
         {[
-          { icon: <FaHome />, label: "Home", path: "/home" },
+          { icon: <FaHome className="drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]"/>, label: "Home", path: "/home" },
           { icon: <FaSearch />, label: "Search", path: "/search" },
           { icon: <FaTv />, label: "TV", path: "/tv" },
           { icon: <FaFilm />, label: "Movies", path: "/movies" },
@@ -40,10 +41,10 @@ const Header = () => {
           <Link
             key={index}
             to={path}
-            className="flex items-center gap-4 p-2 cursor-pointer w-full transition-all hover:bg-gray-800 rounded-md "
+            className="flex items-center gap-4 p-2 cursor-pointer w-full transition-all  duration-300 ease-in-out hover:scale-105 "
           >
-            <span className="w-6 h-6 text-lg">{icon}</span>
-            <span className={`text-white text-sm px-2 py-1 transition-all duration-300 ${isExpanded ? "opacity-100 " : "opacity-0 hidden md:block "}`}>
+            <span className="w-6 h-6 text-lg ">{icon}</span>
+            <span className={`text-white text-xl px-2 py-1 transition-all duration-300 drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,1)] ${isExpanded ? "opacity-100" : "opacity-0 hidden md:block "}`}>
               {label}
             </span>
           </Link>
@@ -52,6 +53,7 @@ const Header = () => {
     </div>
   );
 };
+
 
 function App() {
   return (
